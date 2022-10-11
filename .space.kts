@@ -18,4 +18,12 @@ job("test_php_here") {
             """
         }
     }
+    container (displayName="testing ls" image = "ubuntu") {
+    	shellScript {
+        	content = """
+            	echo Hello World!
+                ls -la
+            """
+        }
+    }
 }
