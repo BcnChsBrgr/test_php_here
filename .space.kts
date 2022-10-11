@@ -5,8 +5,12 @@
 */
 
 job("Hello World!") {
-    container(displayName = "Say Hello", image = "hello-world")
-    sellScript {
-    	content = """vendor/bin/phpunit . """
+    container(displayName = "Say Hello", image = "hello-world" ) 
+    {
+        shellScript {
+        content = """
+        	echo hello!
+        """
+        }
     }
 }
