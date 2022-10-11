@@ -10,6 +10,10 @@ job("test_php_here") {
         		echo hello
                 echo world!!
                 ls -a
+                php --version
+                composer --version
+                composer install
+                vendor/bin/phpunit .
             """
         }
     }
