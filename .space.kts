@@ -10,10 +10,12 @@ job("test_php_here") {
             cpu = 1.cpu
             memory = 2000.mb
         }
+        kotlinScript { api->
+        	println("Build #"+api.executionNumber())
+        }
         shellScript {
             content = """
-                    echo hello
-                    echo world!!
+                    echo ${'$'}JB_SPACE_EXECUTION_NUMBER
                     ls -a
                     php --version
 
