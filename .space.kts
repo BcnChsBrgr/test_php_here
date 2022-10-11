@@ -5,7 +5,7 @@
 */
 job("test_php_here") {
     // check-out main
-    git("main")
+    git("test_php_here")
     container(displayName = "Show dir", image = "amazoncorretto:17-alpine") {
         shellScript {
             content = """
