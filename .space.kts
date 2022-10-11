@@ -3,8 +3,8 @@
 * This Kotlin-script file lets you automate build activities
 * For more info, see https://www.jetbrains.com/help/space/automation.html
 */
-job("Example") {
-    // check-out repo-2 to /mnt/space/work/repo-2
+job("test_php_here") {
+    // check-out main
     git("main")
     container(displayName = "Show dir", image = "amazoncorretto:17-alpine") {
         shellScript {
