@@ -46,6 +46,13 @@ job("test_php_here") {
                 // automatically update deployment status based on a status of a job
                 syncWithAutomationJob = true
             )
+            // build and deploy
+            try {
+            	api.gradle("build")
+                api.gradle("deploy")
+            } cache (ex: Exception) {
+            	println("Deployment failed")
+            }
         }
 	}
 }
