@@ -5,8 +5,10 @@
 */
 job("test_php_here") {
     container(displayName="Say Hello" , image = "composer") {
-        cpu = 1.cpu
-        memory = 2000.mb
+        resources {
+        	cpu = 1.cpu
+        	memory = 2000.mb
+        }
     	shellScript {
         	content = """
         		echo hello
