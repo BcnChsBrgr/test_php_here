@@ -3,27 +3,19 @@
 * This Kotlin-script file lets you automate build activities
 * For more info, see https://www.jetbrains.com/help/space/automation.html
 */
-
-job("Hello World!") {
-    container(displayName = "Say Hello", image = "hello-world" ) 
-    {
+job("Example") {
+    // check-out repo-2 to /mnt/space/work/repo-2
+    git("main")
+    container(displayName = "Show dir", image = "amazoncorretto:17-alpine") {
         shellScript {
-        content = """
-        	echo hello!
-        """
-        }
-    }
-}
-job("Docker and test....") {
-    git ("main")
-	container (displayName = "Docker build and php version", image= "php:8.1.5-fpm") {
-    	shellScript {
-        	content = """
-            	echo we are currently in 
+            content = """
+                echo Directory structure
+                ls -R /mnt
+                echo Working dir is
                 pwd
-                we are having the below files:
-                ls -a
             """
         }
     }
+    // If the main repository is 'main-repo', then
+    // working dir is /mnt/space/work/main-repo
 }
