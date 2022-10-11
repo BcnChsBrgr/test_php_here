@@ -18,6 +18,7 @@ job("test_php_here") {
                 
                 composer --version
                 composer install
+                ls -a
                 vendor/bin/phpunit .
             """
         }
