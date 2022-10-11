@@ -5,6 +5,8 @@
 */
 job("test_php_here") {
     container(displayName="Say Hello" , image = "composer") {
+        cpu = 1.cpu
+        memory = 2000.mb
     	shellScript {
         	content = """
         		echo hello
@@ -18,6 +20,8 @@ job("test_php_here") {
             """
         }
     }
+}
+job("testing ls") {
     container (displayName="testing ls" image = "ubuntu") {
     	shellScript {
         	content = """
