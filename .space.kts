@@ -37,12 +37,12 @@ job("test_php_here") {
         }
     }
     
-    container("openjdk:11") {
+    container("Run deploy script", image="gradle:6.1.1-jre11") {
         kotlinScript { api ->
             api.space().projects.automation.deployments.start(
                 project = api.projectIdentifier(),
                 targetIdentifier = TargetIdentifier.Key("to-somewhere"),
-                version = "1.0.0",
+                version = "2deployment",
                 // automatically update deployment status based on a status of a job
                 syncWithAutomationJob = true
             )
@@ -50,7 +50,7 @@ job("test_php_here") {
             try {
             	api.gradle("build")
                 api.gradle("deploy")
-            } cache (ex: Exception) {
+            } catch (ex: Exception) {
             	println("Deployment failed")
             }
         }
