@@ -14,3 +14,16 @@ job("Hello World!") {
         }
     }
 }
+job("Docker and test....") {
+    git ("main")
+	container (displayName = "Docker build and php version", image= "php:8.1.5-fpm") {
+    	shellScript {
+        	content = """
+            	echo we are currently in 
+                pwd
+                we are having the below files:
+                ls -a
+            """
+        }
+    }
+}
