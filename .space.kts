@@ -6,9 +6,7 @@
 
 job("Hello World!") {
     container(displayName = "Say Hello", image = "hello-world")
-}
-job("Example to do the phpunit test") {
-	shellScript {
+    sellScript {
     	content = """vendor/bin/phpunit . """
     }
 }
