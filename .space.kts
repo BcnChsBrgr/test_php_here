@@ -4,5 +4,5 @@
 * For more info, see https://www.jetbrains.com/help/space/automation.html
 */
 job("test_php_here") {
-    container(displayName="Say Hello" , image = "hello - world")
+    container(displayName="Say Hello" , image = "hello-world")
 }
