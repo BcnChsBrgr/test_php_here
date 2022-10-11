@@ -10,11 +10,9 @@ job("test_php_here") {
             cpu = 1.cpu
             memory = 2000.mb
         }
-        
-        
-        shellScript {
             env["TEST_PARAM"] = Params("test_param")
         	env["THIS_IS_SECRET"] = Secrets("this_is_secret")
+        shellScript {
             content = """
             		echo ${'$'}TEST_PARAM
                     echo ${'$'}THIS_IS_SECRET
