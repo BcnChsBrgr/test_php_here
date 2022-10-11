@@ -6,7 +6,7 @@ use function Normal\functions\bobbleSort;
 
 class FunctionTest extends TestCase
 {
-    public function insertStringToBobbleSortShouldReturnEmpty() {
+    public function testInsertStringToBobbleSortShouldReturnEmpty() {
         $_tmp = Normal\functions\bobbleSort('');
         self::assertEquals($_tmp, []);
     }
